@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table>
+        <tr>
+           <th> Stocks </th>
+           <th> Shares </th>
+           <th> Price </th>
+           <th> Transacted </th>
+        </tr>
+        {% for hist in history %}
+            <tr>
+                <td>{{ hist.stock }}</td>
+                <td>{{ hist.shares }}</td>
+                <td>$ {{"%0.2f" | format(hist.price) }}</td>
+                <td>{{ hist.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
